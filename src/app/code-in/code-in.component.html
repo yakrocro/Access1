@@ -5,28 +5,52 @@
   <div class="row">
     <form class="form-inline w-100"
     [formGroup]="codePartictipantForm"
-    (ngSubmit)="onSubmit()">
+    (ngSubmit)="onSubmit()"
+    >
 
     <div class="form-group m-sm-3 col-sm-12 col-md-4">
       <!-- mb-2 col-sm-12 col-md-12 -->
       <input class="form-control w-100"
-             type="text"
-             formControlName="code">
+      type="text"
+      formControlName="code">
     </div>
 
     <button type="button"
-            class="btn btn-primary col-sm-10 col-md-3 m-3" >
-            <!-- mx-3 col-sm-10 -->
-            Enregistrer
+    class="btn btn-primary col-sm-10 col-md-3 m-3"
+    data-toggle="modal" data-target="#confirmModal" (click)="showConfirmModal()">
+    <!-- mx-3 col-sm-10 -->
+    Enregistrer
   </button>
 
-
-
-
+  <!-- Modal -->
+  <div class="modal fade" id="confirmModal" tabindex="-1" role="dialog" aria-labelledby="confirmModalLabel" aria-hidden="true"
+       [ngClass]="{'show':_showConfirmModal}">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="confirmModalLabel">Confirmation</h5>
+          <!-- <button type="button" class="close"
+                  data-dismiss="modal" aria-label="Close"
+                  (click)="showConfirmModal()">
+            <span aria-hidden="true">&times;</span>
+          </button> -->
+        </div>
+        <div class="modal-body">
+          Merci de confirmer votre {{sense}}
+          <p>{{message}}</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal"
+                  (click)="showConfirmModal()">Annuler</button>
+          <button type="submit" class="btn btn-primary" >Confirmer</button>
+        </div>
+      </div>
+    </div>
+  </div>
 
 </form>
 </div>
 <div class="row">
-  <p>{{message}}</p>
+  <!-- <p>{{message}}</p> -->
 </div>
 </div>

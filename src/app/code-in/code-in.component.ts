@@ -9,6 +9,8 @@ import { FormGroup, FormControl } from '@angular/forms';
 
 export class CodeInComponent implements OnInit {
 
+  private _showConfirmModal : boolean = false;
+  private sense : string = "Arrivée" ;
   public message ;
   private code: string ;
   private arrivees: any = [] ;
@@ -37,12 +39,20 @@ export class CodeInComponent implements OnInit {
       var date = new Date().toLocaleDateString();
       var heure = new Date().toLocaleTimeString();
       this.data = {
-        "code":this.code, "date":this.dateISO(date), "heure": heure,
+        "code":this.code,
+        "date":this.dateISO(date),
+        "heure": heure,
+        "sense": this.sense
       };
       this.storeData(this.data);
       this.message = "Votre entrée a été enregistrée avec succès. Merci.";
     }
     setTimeout( () => { this.resetForm(); }, 5000 );
+  }
+
+  public showConfirmModal(){
+    this.message = "Merci de confirmer votre " + this.sense;
+    return this._showConfirmModal = !this._showConfirmModal;
   }
 
   storeData(data){
@@ -57,7 +67,9 @@ export class CodeInComponent implements OnInit {
 
   isAlreadyEntered(){
     let isTrue: boolean = true ;
-    if ( this.arrivees.find( (arrivee) => arrivee.code === this.code ) === undefined )
+    if ( this.arrivees.find( (arrivee) => {
+      (arrivee.code === this.code) && (arrivee.sense === 'Départ')
+    } ) === undefined )
     isTrue = false ;
     return isTrue ;
   }
