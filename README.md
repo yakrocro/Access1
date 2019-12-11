@@ -1,2 +1,2 @@
 # Access1
-Gestion des access des Participants
+Gestion des accès des Participants
