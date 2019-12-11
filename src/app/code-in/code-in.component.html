@@ -4,20 +4,22 @@
   </div>
   <div class="row">
     <form class="form-inline w-100"
-    [formGroup]="codePartictipantForm"
-    (ngSubmit)="onSubmit()"
+          [formGroup]="codePartictipantForm"
     >
 
     <div class="form-group m-sm-3 col-sm-12 col-md-4">
       <!-- mb-2 col-sm-12 col-md-12 -->
       <input class="form-control w-100"
-      type="text"
-      formControlName="code">
+             type="text"
+             formControlName="code"
+             (keyup.enter)="showConfirmModal()">
     </div>
 
     <button type="button"
-    class="btn btn-primary col-sm-10 col-md-3 m-3"
-    data-toggle="modal" data-target="#confirmModal" (click)="showConfirmModal()">
+            class="btn btn-primary col-sm-10 col-md-3 m-3"
+            data-toggle="modal"
+            data-target="#confirmModal"
+            (click)="showConfirmModal()">
     <!-- mx-3 col-sm-10 -->
     Enregistrer
   </button>
@@ -36,13 +38,16 @@
           </button> -->
         </div>
         <div class="modal-body">
-          Merci de confirmer votre {{sense}}
-          <p>{{message}}</p>
+          <p>Merci de confirmer votre {{sense}}</p>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal"
+          <button type="button"
+                  class="btn btn-secondary"
+                  data-dismiss="modal"
                   (click)="showConfirmModal()">Annuler</button>
-          <button type="submit" class="btn btn-primary" >Confirmer</button>
+          <button type="button"
+                  class="btn btn-primary"
+                  (click)="onSubmit1()">Confirmer</button>
         </div>
       </div>
     </div>
@@ -51,6 +56,6 @@
 </form>
 </div>
 <div class="row">
-  <!-- <p>{{message}}</p> -->
+  <p class="mx-4">{{message}}</p>
 </div>
 </div>
