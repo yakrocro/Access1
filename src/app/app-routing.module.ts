@@ -9,7 +9,6 @@ const routes: Routes = [
   {path: '', component: CodeInComponent },
   {path: 'admin', component: AdminComponent },
   {path: 'participant', component: ParticipantComponent }
-
 ];
 
 @NgModule({
@@ -22,5 +21,5 @@ export class AppRoutingModule { }
 export const routingComponent = [
   CodeInComponent,
   AdminComponent,
-  ParticipantComponent
+  ParticipantComponent,
 ]
