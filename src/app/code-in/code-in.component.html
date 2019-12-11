@@ -1,14 +1,18 @@
 <div class="container-fluid">
   <div class="row">
-    <h1 class="h1">Entrez votre code participant</h1>
+    <h1 class="h1 mx-sm-3">Entrez votre code participant</h1>
   </div>
-
   <div class="row">
-    <form class="form-inline" >
+    <form class="form-inline" [formGroup]="codePartictipantForm" (ngSubmit)="onSubmit()">
       <div class="form-group mx-sm-3 mb-2">
-        <input  class="form-control" type="text" name="code" id="code" placeholder="Code participant">
+        <input  class="form-control"
+                type="text"
+                formControlName="code">
       </div>
-      <button type="submit" class="btn btn-primary mb-2">Entrez</button>
+      <button type="submit" class="btn btn-primary mb-2" >Enregistrer</button>
     </form>
+  </div>
+  <div class="row">
+    <p>{{message}}</p>
   </div>
 </div>
