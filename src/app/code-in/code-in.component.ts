@@ -51,12 +51,6 @@ export class CodeInComponent implements OnInit {
     }
     this._showConfirmModal=false;
     this.resetForm();
-
-
-    // setTimeout( () => {
-    //   this.resetForm();
-    //   this._showConfirmModal=false;
-    // }, 5000 );
   }
 
 onSubmit1(){
@@ -65,11 +59,10 @@ onSubmit1(){
   console.log(this.isAlreadyArrived());
   this._showConfirmModal = false ;
   this.message = "Votre entrée a été enregistrée avec succès. Merci.";
-  setTimeout( () => {  this.resetForm(); }, 5000 );
+  setTimeout( () => { this.resetForm(); }, 5000 );
 
 }
   public showConfirmModal(){
-    // this.message = "Merci de confirmer votre " + this.sense;
     return this._showConfirmModal = !this._showConfirmModal;
   }
 
@@ -95,5 +88,9 @@ onSubmit1(){
     this.codePartictipantForm.reset();
     this.message = "";
   }
+
+//   $('#myModal').on('shown.bs.modal', function () {
+//   $('#myInput').trigger('focus')
+// })
 
 }
